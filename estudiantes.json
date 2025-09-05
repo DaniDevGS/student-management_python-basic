@@ -1,0 +1,56 @@
+[
+    {
+        "Nombre": "Daniel",
+        "Edad": 16,
+        "Notas": [
+            18,
+            18,
+            20,
+            20,
+            20,
+            20,
+            20,
+            17,
+            18
+        ],
+        "Cedula": 0,
+        "Nota Global": 19.0,
+        "Carrera": "Ingenier\u00eda Informatica"
+    },
+    {
+        "Nombre": "Jose",
+        "Edad": 13,
+        "Notas": [
+            16,
+            16,
+            10,
+            20,
+            20,
+            20,
+            19,
+            13,
+            20
+        ],
+        "Cedula": 0,
+        "Nota Global": 17.11111111111111,
+        "Carrera": "Investigaci\u00f3n Penal"
+    },
+    {
+        "Nombre": "Jakelin",
+        "Edad": 19,
+        "Notas": [
+            20,
+            19,
+            20,
+            18,
+            19,
+            16,
+            20,
+            18,
+            20
+        ],
+        "Cedula": 0,
+        "Nota Global": 18.88888888888889,
+        "Carrera": "Ingenier\u00eda en Sistemas"
+    }
+]
