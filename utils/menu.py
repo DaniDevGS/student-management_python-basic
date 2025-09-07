@@ -65,7 +65,7 @@ def mostrar_menu_tipos_carreras(universidad):
     time.sleep(DELAY) 
     
     while True:
-        print(f"\n--- Tipos de Carrera en {universidad['nombre']} ---")
+        print(Fore.YELLOW + f"\n\t\tTipos de Carrera en {universidad['nombre']}" + Style.RESET_ALL)
         for i, tipo in enumerate(tipos_carrera, 1):
             print(f"{i}. {tipo}")
         print(f"{len(tipos_carrera)+1}. Volver al menú anterior")
@@ -107,7 +107,7 @@ def mostrar_carreras(universidad, tipo_carrera):
 
     carreras = obtener_carreras_por_tipo(universidad, tipo_carrera)
     
-    print(f"\n--- {tipo_carrera} en {universidad['nombre']} ---")
+    print(Fore.YELLOW + f"\n\t\t{tipo_carrera} en {universidad['nombre']}" + Style.RESET_ALL)
     for carrera in carreras:
         print(f"{carrera['id']}: {carrera['name']}")
     

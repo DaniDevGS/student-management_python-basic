@@ -13,7 +13,7 @@
             17,
             18
         ],
-        "Cedula": 0,
+        "Cedula": 32993247,
         "Nota Global": 19.0,
         "Carrera": "Ingenier\u00eda Informatica"
     },
@@ -31,7 +31,7 @@
             13,
             20
         ],
-        "Cedula": 0,
+        "Cedula": 2332333,
         "Nota Global": 17.11111111111111,
         "Carrera": "Investigaci\u00f3n Penal"
     },
@@ -49,8 +49,116 @@
             18,
             20
         ],
-        "Cedula": 0,
+        "Cedula": 2234445,
         "Nota Global": 18.88888888888889,
         "Carrera": "Ingenier\u00eda en Sistemas"
+    },
+    {
+        "Nombre": "Juan",
+        "Edad": 18,
+        "Notas": [
+            20,
+            14,
+            16,
+            20,
+            18,
+            20,
+            20,
+            17,
+            16
+        ],
+        "Cedula": "32664567",
+        "Nota Global": 17.88888888888889,
+        "Carrera": "Bioan\u00e1lisis"
+    },
+    {
+        "Nombre": "David",
+        "Edad": 16,
+        "Notas": [
+            10,
+            19,
+            18,
+            20,
+            19,
+            18,
+            20,
+            20,
+            20
+        ],
+        "Cedula": "33888534",
+        "Nota Global": 18.22222222222222,
+        "Carrera": "Ingenier\u00eda Geof\u00edsica"
+    },
+    {
+        "Nombre": "Jose",
+        "Edad": 13,
+        "Notas": [
+            20,
+            12,
+            12,
+            13,
+            16,
+            19,
+            19,
+            20,
+            20
+        ],
+        "Cedula": "132332232",
+        "Nota Global": 16.77777777777778,
+        "Carrera": "Dise\u00f1o Grafico"
+    },
+    {
+        "Nombre": "Carlos",
+        "Edad": 17,
+        "Notas": [
+            18,
+            20,
+            17,
+            20,
+            19,
+            20,
+            20,
+            14,
+            20
+        ],
+        "Cedula": "32233232",
+        "Nota Global": 18.666666666666668,
+        "Carrera": "Informatica"
+    },
+    {
+        "Nombre": "Yair",
+        "Edad": 18,
+        "Notas": [
+            20,
+            10,
+            10,
+            19,
+            17,
+            19,
+            1,
+            20,
+            20
+        ],
+        "Cedula": "222323",
+        "Nota Global": 15.11111111111111,
+        "Carrera": "Ingenier\u00eda de Mantenimiento Mec\u00e1nico"
+    },
+    {
+        "Nombre": "jackelin",
+        "Edad": 19,
+        "Notas": [
+            19,
+            19,
+            20,
+            17,
+            18,
+            20,
+            19,
+            19,
+            20
+        ],
+        "Cedula": "31337751",
+        "Nota Global": 19.0,
+        "Carrera": "Administraci\u00f3n"
     }
 ]

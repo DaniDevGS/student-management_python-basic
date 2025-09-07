@@ -55,15 +55,13 @@ IUTIRLA = {
             {"name": "Ingeniería Electrónica", "id": 2},
             {"name": "Ingeniería Mecánica", "id": 3}
         ],
-        "Tecnología": [
-            {"name": "Tecnología Electrónica", "id": 4},
-            {"name": "Tecnología Mecánica", "id": 5},
-            {"name": "Tecnología Eléctrica", "id": 6}
+        "Tecnico Superior Universitario": [
+            {"name": "Informatica", "id": 1},
+            {"name": "Diseño Grafico", "id": 2},
+            {"name": "Administracion de Empresas", "id": 3},
+            {"name": "Turismo", "id": 4}
         ],
-        "Otros": [
-            {"name": "Administración Industrial", "id": 7},
-            {"name": "Mantenimiento Industrial", "id": 8}
-        ]
+        
     }
 }
 

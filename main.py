@@ -29,96 +29,122 @@ def main():
 
     global lista_estudiantes
 
-    print(Fore.LIGHTYELLOW_EX +"\n\t\tPrograma de ingresos de estudiantes\n" + Style.RESET_ALL)
-    print(Fore.CYAN + "\t\t\tMenú de Ingresos\n" + Style.RESET_ALL)
-    print("\t\t 1. Estudiante")
-    print("\t\t 2. Administador")
+    while True:
+        print(Fore.LIGHTYELLOW_EX +"\n\t\tPrograma de ingresos de estudiantes\n" + Style.RESET_ALL)
+        print(Fore.CYAN + "\t\t\tMenú de Ingresos\n" + Style.RESET_ALL)
+        print("\t\t 1. Estudiante")
+        print("\t\t 2. Administador")
+        print("\t\t 3. Salir")
 
-    opcion = int(input("\nSeleccione una opcion: "))
+        #===================================Menu de Opciones=====================================================
+        try:
+            opcion = int(input("\nSeleccione una opcion: "))
+        except ValueError:
+            print(Fore.RED + "Error: Por favor ingrese un número válido" + Style.RESET_ALL)
+            time.sleep(DELAY)
+            continue
 
-    #===================================Menu de Opciones=====================================================
-    """Ejecuta la opcion de estudiante, crear un estudiante con los datos del datos"""
-    if opcion == 1:
+        """Ejecuta la opcion de estudiante, crear un estudiante con los datos del datos"""
+        if opcion == 1:
 
-        time.sleep(DELAY)
-        print(Fore.CYAN + "\n\tColoque sus datos\n" + Style.RESET_ALL)
+            time.sleep(DELAY)
+            print(Fore.CYAN + "\n\tColoque sus datos\n" + Style.RESET_ALL)
 
-        #Crea una copia del diccionario 
-        estudiante_actual = estudiantes.copy()
+            #Crea una copia del diccionario 
+            estudiante_actual = estudiantes.copy()
+            estudiante_actual["Notas"].clear()
 
-        estudiante_actual["Nombre"] = input("Hola usuario porfavor coloque su nombre: ")
+            estudiante_actual["Nombre"] = input("Hola usuario porfavor coloque su nombre: ")
 
-        #Verificacion de la edad del usuario sin que el programa termine
-        while True:
-            try:
-                edad = int(input("Ahora porfavor coloque su edad: "))
-                verificar_edad(edad)
-                estudiante_actual["Edad"] = edad
-                break
-            except (ValueError, TypeError, Exception) as e:
-                print(Fore.RED + f"\nError: {e}")
-
-        estudiantes["Cedula"] = input("Por favor coloque su cédula: ")
-
-        #Verificacion de las notas del usuario sin que el programa termine
-        for materia in lista_materias:
+            #Verificacion de la edad del usuario sin que el programa termine
             while True:
                 try:
-                    nota = int(input(f"\nColoque la nota de {materia}: "))
-                    verificar_notas(nota)
-                    estudiantes["Notas"].append(nota)
+                    edad = int(input("Ahora porfavor coloque su edad: "))
+                    verificar_edad(edad)
+                    estudiante_actual["Edad"] = edad
                     break
                 except (ValueError, TypeError, Exception) as e:
-                    print(Fore.RED + f"\nError: {e}" + Style.RESET_ALL)
+                    print(f"\nError: {e}")
 
-        #Nota final del estudiante
-        nota_final = calcular_nota(estudiante_actual["Notas"])
+            estudiante_actual["Cedula"] = input("Por favor coloque su cédula: ")
 
-        time.sleep(DELAY)  
-        carrera_estudiante = mostrar_menu_universidades()
+            #Verificacion de las notas del usuario sin que el programa termine
+            for materia in lista_materias:
+                while True:
+                    try:
+                        nota = int(input(f"\nColoque la nota de {materia}: "))
+                        verificar_notas(nota)
+                        estudiantes["Notas"].append(nota)
+                        break
+                    except (ValueError, TypeError, Exception) as e:
+                        print(Fore.RED + f"\nError: {e}" + Style.RESET_ALL)
 
-        #===================================Imprimir datos====================================================
-        #Datos del estudiante
-        print("")
-        print(Fore.CYAN + "\t\tDatos del Estudiante" + Style.RESET_ALL )
+            #Nota final del estudiante
+            nota_final = calcular_nota(estudiante_actual["Notas"])
 
-        for clave, valor in estudiantes.items():
-            #Imprime la lista de notas como un STR(string)
-            if isinstance(valor, list):
-                valor_str = ', '.join(map(str, valor))
-                print(Fore.BLUE + f"{clave}: " + Fore.GREEN + f"{valor_str}")
-            else:
-                print(Fore.BLUE + f"{clave}: " + Fore.GREEN + f"{valor}" + Style.RESET_ALL)
-        print(Fore.BLUE + f"Nota Global:" + Fore.GREEN + f"{nota_final:.2f}" + Style.RESET_ALL)
-        print(Fore.BLUE + f"Carrera seleccionada:" + Fore.GREEN + f"{carrera_estudiante}" + Style.RESET_ALL)
+            time.sleep(DELAY)  
+            carrera_estudiante = mostrar_menu_universidades()
+
+            #==========Imprimir datos del estudiante===========
+            print("")
+            print(Fore.CYAN + "\t\tDatos del Estudiante" + Style.RESET_ALL )
+
+            for clave, valor in estudiante_actual.items():
+                #Imprime la lista de notas como un STR(string)
+                if isinstance(valor, list):
+                    valor_str = ', '.join(map(str, valor))
+                    print(Fore.BLUE + f"{clave}: " + Fore.GREEN + f"{valor_str}")
+                else:
+                    print(Fore.BLUE + f"{clave}: " + Fore.GREEN + f"{valor}" + Style.RESET_ALL)
+
+            #Imprime la nota global y la carrera seleccionada
+            print(Fore.BLUE + f"Nota Global: " + Fore.GREEN + f"{nota_final:.2f}" + Style.RESET_ALL)
+            print(Fore.BLUE + f"Carrera seleccionada: " + Fore.GREEN + f"{carrera_estudiante}" + Style.RESET_ALL)
 
 
-        #Guardar
-        estudiante_actual["Nota Global"] = nota_final
-        estudiante_actual["Carrera"] = carrera_estudiante
-        lista_estudiantes.append(estudiante_actual)
-        guardar_datos(lista_estudiantes) #Guardar al JSON
+            #Guardar datos del estudiante
+            estudiante_actual["Nota Global"] = nota_final
+            estudiante_actual["Carrera"] = carrera_estudiante
+            lista_estudiantes.append(estudiante_actual)
+            guardar_datos(lista_estudiantes) #Guardar al JSON
 
-    #===================================Opcion dos sistema de Administracion=================================
-    elif opcion ==2:
+            #Volver a inicio
+            input(Fore.YELLOW + "\nPresione Enter para volver al menú principal..." + Style.RESET_ALL)
 
-        lista_estudiantes = cargar_datos()
-        
-        print("\n\tMenú de Administracion\n")
-        print("\t1. Ver la lista de estudiantes.")
-        estudiantes_registrados(lista_estudiantes)
-        opcion_admin = int(input("\nSeleccione una opcion: "))
+        # ===================================Opción Administrador==================================
+        elif opcion ==2:
 
-        if opcion_admin == 1:
-            #Muestra los datos del
-            mostrar_lista_estudiantes(lista_estudiantes)
-        else: 
-            print(Fore.RED + "Opcion no valida" + Style.RESET_ALL)
+            lista_estudiantes = cargar_datos()
+            
+            print("\n\tMenú de Administracion\n")
+            print("\t1. Ver la lista de estudiantes.")
+            estudiantes_registrados(lista_estudiantes)
 
-    #===================================ELSE=====================================================
-    else:
-        print("Opcion no valida")
+            try:
+                opcion_admin = int(input("\nSeleccione una opcion: "))
+            except ValueError:
+                print(Fore.RED + "Error: Por favor ingrese un número válido" + Style.RESET_ALL)
+                time.sleep(DELAY)
+                continue
 
+            if opcion_admin == 1:
+                #Muestra los datos del estudiante
+                mostrar_lista_estudiantes(lista_estudiantes)
+            else: 
+                print(Fore.RED + "Opcion no valida" + Style.RESET_ALL)
+
+            #Volver a inicio
+            input(Fore.YELLOW + "\nPresione Enter para volver al menú principal..." + Style.RESET_ALL)
+
+        # =================================== Salir ===================================
+        elif opcion == 3:
+            time.sleep(DELAY + DELAY)
+            print("Saliendo.....")
+            break
+
+        else:
+            print(Fore.RED + "Opción no válida" + Style.RESET_ALL)
+            time.sleep(DELAY)
 
 """
     FUNCIONES
@@ -139,10 +165,10 @@ def verificar_edad(edad: int):
     """
 
     if edad < EDADMINIMA or edad > EDADMAXIMA:
-        raise ValueError("La edad no puede ser menor a 13 o mayor a 19. Porfavor intente de nuevo.\n" + Style.RESET_ALL)
+        raise ValueError(Fore.RED + "La edad no puede ser menor a 13 o mayor a 19. Porfavor intente de nuevo.\n" + Style.RESET_ALL)
     if isinstance(edad, str):
-            raise TypeError("La edad no pueden ser texto\n" + Style.RESET_ALL)
-    
+            raise TypeError(Fore.RED + "La edad no pueden ser texto\n" + Style.RESET_ALL)
+
 
 def verificar_notas(nota: int):
     """Verifica que la nota cumpla con los requisitos establecidos.
@@ -192,7 +218,7 @@ def mostrar_lista_estudiantes(estudiantes: list):
 
     print("\nLista de estudiantes:")
     for i, estudiante in enumerate(estudiantes, 1):
-        print(f"\n{i}. {estudiante['Nombre']} - Cédula: {estudiante['Cedula']} - Nota Global: {estudiante['Nota Global']:.2f}")
+        print(Fore.BLUE + f"\n{i}. Nombre: " + Fore.GREEN + f"{estudiante["Nombre"]}, " + Fore.BLUE + f"Cédula: " + Fore.GREEN + f"{estudiante["Cedula"]}, " + Fore.BLUE + f"Nota Global: " + Fore.GREEN + f"{estudiante['Nota Global']:.2f}")
 
 
 def estudiantes_registrados(lista_estudiantes: list):
@@ -204,7 +230,7 @@ def estudiantes_registrados(lista_estudiantes: list):
         lista_estudiantes (list): Lista de estudiantes registrados
     """
 
-    print(Fore.YELLOW + f"\tTotal de estudiantes registrados: {len(lista_estudiantes)}" + Style.RESET_ALL)
+    print(Fore.MAGENTA + f"\tTotal de estudiantes registrados: {len(lista_estudiantes)}" + Style.RESET_ALL)
 
 
 if __name__ == '__main__':

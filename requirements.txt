@@ -1,5 +1,3 @@
 """Para este programa uso colorama para colorizar los prints"""
 
 pip install colorama
-
-pip insta
