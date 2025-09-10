@@ -160,5 +160,23 @@
         "Cedula": "31337751",
         "Nota Global": 19.0,
         "Carrera": "Administraci\u00f3n"
+    },
+    {
+        "Nombre": "Jose",
+        "Edad": 18,
+        "Notas": [
+            14,
+            19,
+            20,
+            20,
+            20,
+            17,
+            19,
+            16,
+            20
+        ],
+        "Cedula": "26832492",
+        "Nota Global": 18.333333333333332,
+        "Carrera": "Investigaci\u00f3n Penal"
     }
 ]

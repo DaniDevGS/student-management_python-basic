@@ -54,7 +54,11 @@ def main():
             estudiante_actual = estudiantes.copy()
             estudiante_actual["Notas"].clear()
 
-            estudiante_actual["Nombre"] = input("Hola usuario porfavor coloque su nombre: ")
+            nombre = input("Hola usuario porfavor coloque su nombre: ")
+            apellido = input("Coloque su apellido: ")
+
+            #Unir {nombre} y {apelllido}
+            estudiante_actual["Nombre"] = f"{nombre} {apellido}"
 
             #Verificacion de la edad del usuario sin que el programa termine
             while True:
@@ -113,25 +117,31 @@ def main():
 
         # ===================================Opción Administrador==================================
         elif opcion ==2:
+            password = input(Fore.YELLOW + "\nColoque la clave de administrador: " + Style.RESET_ALL).lower().strip()
 
-            lista_estudiantes = cargar_datos()
+            if password == "admin123":
+
+                lista_estudiantes = cargar_datos()
             
-            print("\n\tMenú de Administracion\n")
-            print("\t1. Ver la lista de estudiantes.")
-            estudiantes_registrados(lista_estudiantes)
+                print("\n\tMenú de Administracion\n")
+                print("\t1. Ver la lista de estudiantes.")
+                estudiantes_registrados(lista_estudiantes)
 
-            try:
-                opcion_admin = int(input("\nSeleccione una opcion: "))
-            except ValueError:
-                print(Fore.RED + "Error: Por favor ingrese un número válido" + Style.RESET_ALL)
-                time.sleep(DELAY)
-                continue
+                try:
+                    opcion_admin = int(input("\nSeleccione una opcion: "))
+                except ValueError:
+                    print(Fore.RED + "Error: Por favor ingrese un número válido" + Style.RESET_ALL)
+                    time.sleep(DELAY)
+                    continue
 
-            if opcion_admin == 1:
+                if opcion_admin == 1:
                 #Muestra los datos del estudiante
-                mostrar_lista_estudiantes(lista_estudiantes)
-            else: 
-                print(Fore.RED + "Opcion no valida" + Style.RESET_ALL)
+                    mostrar_lista_estudiantes(lista_estudiantes)
+                else: 
+                    print(Fore.RED + "Opcion no valida" + Style.RESET_ALL)
+            
+            else:
+                print("Clave incorrecta")
 
             #Volver a inicio
             input(Fore.YELLOW + "\nPresione Enter para volver al menú principal..." + Style.RESET_ALL)
