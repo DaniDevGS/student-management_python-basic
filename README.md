@@ -2,6 +2,10 @@
 
 [![Estado](https://img.shields.io/badge/estado-activo-brightgreen)](https://github.com/DaniDevGS/student-management_python-basic)
 [![Licencia](https://img.shields.io/badge/licencia-CC_BY--ND_4.0-lightgrey)](https://creativecommons.org/licenses/by-nd/4.0/)
+[![Python](https://img.shields.io/badge/Python-3.6%2B-blue?logo=python)](https://python.org)
+[![Code Style](https://img.shields.io/badge/code%20style-PEP8-brightgreen)](https://pep8.org)
+
+![Demo](https://images.unsplash.com/photo-1624953587687-daf255b6b80a?fm=jpg&q=60&w=800&h=400&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHl0aG9uJTIwcHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D)
 
 
 Sistema de gestión académica basica desarrollado en Python que permite a estudiantes registrar sus datos y a administradores visualizar información académica.
