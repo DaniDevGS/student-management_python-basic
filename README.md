@@ -43,11 +43,16 @@ pip install -r requirements.txt
 python main.py
 ```
 
+<b>Note:</b> Para acceder a las funciones del menu admin se necesita una contraseña la cual es <strong>admin123</strong>.
+
 ## Estructura del proyecto
 ```bash
 student-management_python-basic/
 ├── utils/
 │   ├── components/
+│   │   ├──statistics/
+│   │   │   ├── __init__.py
+│   │   │   └── stats.py
 │   │   ├── __init__.py
 │   │   └── universitys.py
 │   ├── database/

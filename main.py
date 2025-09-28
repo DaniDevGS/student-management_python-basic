@@ -1,5 +1,6 @@
 from utils.menu import *
 from utils.database.json import cargar_datos, guardar_datos
+from utils.components.statistics.stats import ordenar_notas, imprimir_notas
 from colorama import Fore, Style, init
 import time
 
@@ -125,6 +126,7 @@ def main():
             
                 print("\n\tMenú de Administracion\n")
                 print("\t1. Ver la lista de estudiantes.")
+                print("\t2. Ranking de mejores estudiantes.")
                 estudiantes_registrados(lista_estudiantes)
 
                 try:
@@ -137,6 +139,9 @@ def main():
                 if opcion_admin == 1:
                 #Muestra los datos del estudiante
                     mostrar_lista_estudiantes(lista_estudiantes)
+                elif opcion_admin == 2:
+                    estudiantes_ordenados = ordenar_notas(lista_estudiantes) 
+                    imprimir_notas(estudiantes_ordenados)
                 else: 
                     print(Fore.RED + "Opcion no valida" + Style.RESET_ALL)
             
@@ -174,7 +179,7 @@ def verificar_edad(edad: int):
         TypeError: Si el tipo de dato no es entero
     """
 
-    if edad < EDADMINIMA or edad > EDADMAXIMA:
+    if edad < EDADMINIMA or edad > EDADMAXIMA: 
         raise ValueError(Fore.RED + "La edad no puede ser menor a 13 o mayor a 19. Porfavor intente de nuevo.\n" + Style.RESET_ALL)
     if isinstance(edad, str):
             raise TypeError(Fore.RED + "La edad no pueden ser texto\n" + Style.RESET_ALL)
